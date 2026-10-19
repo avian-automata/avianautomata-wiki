@@ -80,8 +80,9 @@ The 305ap is a compact, high-performance flight controller for multirotor, fixed
 - **Wide input voltage.** The VBAT path uses an LM74700-Q1 ideal-diode controller with an external N-FET, providing 2S–6S input support with low forward drop and protection against reverse polarity.
 - **Dedicated 9 V rail.** A second AP63357 buck provides a stable 9 V rail for VTX/OSD power, independent of the 5 V peripheral rail.
 - **Auto USB / battery power.** A TPS2116 mux selects between USB 5 V and the onboard 5 V switcher automatically, so the board powers cleanly from USB alone during bench work.
+- **Onboard compass and 5 V loads.** Current on the 5 V peripheral rail can shift the onboard compass reading. Steady loads are removed by compass calibration; with highly variable 5 V loads, use an external GPS + compass module. See [Magnetometer](hardware/magnetometer#magnetic-interference).
 - **No onboard current shunt.** The ASENSE pin accepts a 0–3.3 V signal from an external current sensor (power module or ESC with current output). No current data is available without one.
-- **No safety/arm switch.** Arming is via RC stick command or GCS only. Set `COM_ARM_SWSBTN` appropriately.
+- **No safety switch.** Arming is by RC stick command, an RC arm switch (`RC_MAP_ARM_SW`), or the ground station. PX4's default `COM_SAFETY_MODE` (safety always off) is correct for the 305ap.
 - **Parameters on SD card.** No FRAM. Parameters are stored at `/fs/microsd/params`. A card must be inserted for parameters to persist across reboots.
 - **No inversion stage on RC input.** UART5 is single-wire half-duplex. SBUS compatibility depends on PX4's software inversion support for the H7 UART. CRSF and uninverted ELRS are fully supported.
 - **MCU package.** TFBGA100 exposes GPIO ports A–E only. All pin assignments reflect this constraint.

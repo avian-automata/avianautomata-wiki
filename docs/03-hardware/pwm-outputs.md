@@ -42,47 +42,46 @@ The 305ap supports all standard PX4 output protocols:
 | DSHOT150 | Digital, 150 kbps | Recommended baseline |
 | DSHOT300 | Digital, 300 kbps | Typical default for modern ESCs |
 | DSHOT600 | Digital, 600 kbps | High-speed DSHOT |
-| DSHOT1200 | Digital, 1200 kbps | Fastest DSHOT |
 
-DSHOT is recommended over PWM for most applications. It is noise-immune, bidirectional with BDSHOT support, and eliminates calibration.
+DSHOT is recommended over PWM for most applications. It is noise-immune and needs no calibration.
 
 ## Configuring Protocol in QGroundControl
 
 1. Go to **Vehicle Setup → Actuators**
-2. Select the output protocol for each motor group
-3. For DSHOT, set the appropriate speed under **DSHOT_CONFIG**
+2. Select the output protocol for each timer group (MAIN 1–2, 3–4, 5–6, 7–8)
 
 Or set directly in **Parameters**:
 
 | Parameter | Description |
 |---|---|
-| `DSHOT_CONFIG` | DSHOT speed: 0=disabled, 150/300/600/1200 |
-| `PWM_MAIN_RATE` | PWM update rate in Hz (if using standard PWM) |
+| `PWM_MAIN_TIM0`–`PWM_MAIN_TIM3` | Protocol per timer group: `-5`/`-4`/`-3` = DShot150/300/600, `-1` = OneShot, `50`–`400` = PWM rate in Hz |
+
+Only MAIN 1–2 default to DShot300; the other groups default to PWM 400 Hz. See [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups).
 
 ## Motor Order
 
-PX4 uses a fixed motor numbering convention for common airframe types. For a **quadcopter in X configuration**:
+Motor numbering follows the geometry of the selected airframe, shown in **Vehicle Setup → Actuators**. For PX4's **Quadrotor X**:
 
 ```
-   Front
-  1   2
-  4   3
+     Front
+   3       1
+     \   /
+     /   \
+   2       4
 ```
 
-- Motor 1: front-left, counter-clockwise
-- Motor 2: front-right, clockwise
-- Motor 3: rear-right, counter-clockwise
-- Motor 4: rear-left, clockwise
+| Motor | Position | Direction |
+|---|---|---|
+| 1 | Front-right | Counter-clockwise |
+| 2 | Rear-left | Counter-clockwise |
+| 3 | Front-left | Clockwise |
+| 4 | Rear-right | Clockwise |
 
-Verify motor order in **Vehicle Setup → Actuators → Motor Testing** before flying.
+Verify motor order in **Vehicle Setup → Actuators** with the motor test sliders (propellers off) before flying.
 
 ## Bidirectional DSHOT (BDSHOT)
 
-BDSHOT allows the FC to receive RPM telemetry directly over the signal wire without separate ESC telemetry wiring. To enable:
-
-1. Set `DSHOT_CONFIG` to a supported speed (300 or 600 recommended)
-2. Set `MOT_POLE_COUNT` to match your motors
-3. RPM data will appear in `esc_status` and be used by the RPM-based notch filter
+PX4 supports bidirectional DShot (RPM over the signal wire) with the `PWM_MAIN_TIMn` values `-8`/`-7`/`-6` (BDShot150/300/600). It has not been verified on the 305ap yet; use serial ESC telemetry (below) for RPM data.
 
 :::note ESC DSHOT support
 Verify your ESCs support the selected DSHOT speed. BLHeli32, AM32, and most modern 4-in-1 ESCs support DSHOT300/DSHOT600.
@@ -94,4 +93,4 @@ USART1 (ttyS0) is dedicated to **single-wire ESC serial telemetry** from BLHeli3
 
 To enable, configure your ESC firmware to output serial telemetry and connect the telemetry wire to the USART1 pin (PA9) on the motor connector.
 
-**PX4 parameter:** `SER_UART1_FUNC` = `ESC Telemetry (10)`
+USART1 has no port name in QGroundControl, so start the telemetry driver from the SD card: add `dshot telemetry -d /dev/ttyS0 -x` to `/fs/microsd/etc/extras.txt`. See [ESC Configuration](../configuration/esc-configuration#esc-telemetry).

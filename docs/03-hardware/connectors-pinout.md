@@ -26,6 +26,10 @@ All board-to-wire connectors use **JST-GH** style. Pin 1 is marked on the connec
 | RC IN | U22 | 3 | RC receiver input |
 | USB-C | USBC1 | — | USB 2.0 FS device / power |
 
+:::note +5V pins and the onboard compass
+The +5V pins on all connectors come from the board's 5 V rail. A load on them that varies substantially in flight (servos, companion computer, video transmitter) can throw off the onboard compass. For systems like that, use an external GPS + compass module. See [Magnetometer](../hardware/magnetometer#magnetic-interference).
+:::
+
 ---
 
 ## Power — CN1

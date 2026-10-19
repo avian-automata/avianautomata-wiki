@@ -12,10 +12,10 @@ The 305ap has two independent FDCAN ports supporting DroneCAN (formerly UAVCAN v
 
 | Port | TX | RX | Enable (STB) | Transceiver |
 |---|---|---|---|---|
-| FDCAN1 | PD1 | PD0 | PA10 (active-high) | SIT1044T/K/3 |
-| FDCAN2 | PB6 | PB5 | PE1 (active-high) | SIT1044T/K/3 |
+| FDCAN1 | PD1 | PD0 | PA10 (active-low) | SIT1044T/K/3 |
+| FDCAN2 | PB6 | PB5 | PE1 (active-low) | SIT1044T/K/3 |
 
-The STB (standby) pin controls the CAN transceiver. PX4 asserts it high to enable the transceiver.
+The STB (standby) pin controls the CAN transceiver: low = normal operation, high = standby. The firmware drives both STB pins low at boot, so the transceivers are always active.
 
 **PA10 note:** PA10 was repurposed from USART1 as the FDCAN1 STB line. It is not available as a UART pin.
 
@@ -41,7 +41,7 @@ CAN uses a differential pair. Connect:
 The 305ap includes **two 120 Ω termination resistors onboard** for each CAN port. The bus is fully terminated at the FC. **Do not add any external termination resistors** on the cable run or at peripheral devices — extra resistors will lower the bus impedance below the ISO 11898-2 spec and degrade signal integrity.
 
 :::warning
-Do not daisy-chain CAN in a star topology. Run a single bus from the FC to each device in a line.
+Do not wire CAN as a star. Run a single bus from the FC through each device in a line (daisy chain).
 :::
 
 ## Enabling DroneCAN in PX4
@@ -50,7 +50,7 @@ Do not daisy-chain CAN in a star topology. Run a single bus from the FC to each 
 2. Reboot
 3. PX4 will enumerate all DroneCAN devices on the bus and configure them automatically
 
-For FDCAN2, set `UAVCAN_ENABLE` for the second bus (parameter naming depends on PX4 version).
+`UAVCAN_ENABLE` covers both ports; devices can be on either. See [DroneCAN](../advanced/dronecan) for sensor subscriptions and ESC setup.
 
 ## Common DroneCAN Peripherals
 

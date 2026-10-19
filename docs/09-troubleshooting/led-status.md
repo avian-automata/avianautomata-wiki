@@ -22,7 +22,8 @@ PX4 controls these LEDs to communicate system state. The patterns below reflect 
 
 | Pattern | Meaning |
 |---|---|
-| Red fast blink | Bootloader active, waiting for firmware upload |
+| Blue blink (first 5 s after power-up) | Bootloader active, waiting for firmware upload |
+| Green solid (during an upload) | Bootloader writing firmware |
 | All LEDs on briefly | NuttX initializing |
 | Blue slow blink | PX4 starting up, sensors initializing |
 

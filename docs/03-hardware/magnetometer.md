@@ -71,4 +71,10 @@ Common sources of interference to keep away from the FC:
 - High-current power distribution buses
 - Large permanent magnets (speaker magnets, etc.)
 
+:::note 5 V load and the onboard compass
+The onboard compass works well in typical builds. Current drawn from the board's 5 V rail (the +5V pins on the connectors) also produces a field at the compass, so a 5 V load that varies substantially in flight can throw off its readings: servos, a companion computer, a video transmitter, or other peripherals that switch on and off. A steady 5 V load is not a problem. It acts as a fixed offset that compass calibration removes, so calibrate with your usual 5 V peripherals connected and powered.
+
+In complex systems with highly variable 5 V loads, use an external GPS + compass module on the GPS port (CN4, I2C4) and make it the primary compass: in QGroundControl under **Vehicle Setup → Sensors → Compass**, give the external compass the higher priority or disable the internal one.
+:::
+
 If using an onboard compass is insufficient for your application, use a GPS+compass module mounted on a mast away from the motors, connected via I2C4.

@@ -38,7 +38,7 @@ Calibrate all sensors before flying. Follow the on-screen instructions:
 | Level Horizon | Place the board level, then calibrate |
 
 :::note IMU orientation
-Both IMU slots are mounted flat on the top of the board with the same orientation, regardless of which part is populated (LSM6DSV or ICM-45686). No rotation offset is needed if the board is mounted flat and forward-facing.
+Both IMU slots are mounted flat on the top of the board with the same orientation, regardless of which part is populated (LSM6DSV or ICM-45686). No rotation offset is needed if the board is mounted flat and forward-facing. Forward is the edge with the power connector; the SD card is at the rear.
 :::
 
 ### 3. Radio
@@ -66,7 +66,7 @@ Configure battery monitoring:
 | Full voltage (per cell) | 4.20 V (LiPo) |
 | Empty voltage (per cell) | 3.50 V (LiPo) |
 | Voltage divider | Calibrate against a multimeter reading |
-| Amps per volt | Set per your external current sensor datasheet |
+| Amps per volt | **11 ×** your current sensor's A/V (the input has a 1/11 divider; see [ESC Configuration](esc-configuration#current-sensing)) |
 
 :::note No onboard current shunt
 The 305ap requires an external current sensor. If no sensor is connected, current and consumed mAh will not be reported.
@@ -78,9 +78,9 @@ Access parameters via **Vehicle Setup → Parameters**. Useful ones to know:
 
 | Parameter | Description |
 |---|---|
-| `SER_UART4_FUNC` | Function assigned to Telem 1 (UART4) |
-| `SER_UART7_FUNC` | Function assigned to Telem 2 (UART7) |
+| `MAV_0_CONFIG` | Port for MAVLink instance 0 (Telem 1 by default) |
+| `MAV_1_CONFIG` | Port for MAVLink instance 1 (off by default; e.g. Telem 2) |
 | `MAV_0_FLOW_CTRL` | Hardware flow control for MAVLink instance 0 |
-| `COM_ARM_SWSBTN` | Arming behavior without a safety switch |
+| `COM_SAFETY_MODE` | Safety switch behavior; the default (always off) is correct for the 305ap, which has no safety switch |
 | `EKF2_MAG_TYPE` | Magnetometer fusion mode |
-| `DSHOT_CONFIG` | DSHOT protocol selection for ESCs |
+| `PWM_MAIN_TIM0`–`TIM3` | Output protocol (DShot, PWM) per timer group |

@@ -8,11 +8,15 @@ sidebar_label: Flashing
 
 ## Via QGroundControl (Recommended)
 
-1. Connect the 305ap to your PC via USB.
-2. Open QGroundControl.
-3. Go to **Vehicle Setup → Firmware**.
-4. Select **PX4 Flight Stack** and choose the stable release.
-5. QGroundControl will detect the board and flash automatically.
+The 305ap isn't in upstream PX4, so QGroundControl's built-in PX4 release download doesn't include it. Flash a `.px4` file instead:
+
+1. Unplug the battery and USB, and open QGroundControl.
+2. Go to **Vehicle Setup → Firmware**.
+3. Plug in USB.
+4. Select **PX4 Flight Stack**, tick **Advanced settings**, and choose **Custom firmware file...**.
+5. Select the `avianautomata_305ap_default_<date>.px4` file.
+
+See [Firmware Install](../getting-started/firmware-install) for where to get firmware files.
 
 :::tip
 If QGroundControl does not detect the board, try entering DFU mode manually (see below).

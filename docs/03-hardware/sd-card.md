@@ -53,9 +53,10 @@ After first boot with a blank card, PX4 creates the following directory structur
 
 ## Logging
 
-PX4 starts logging when:
-- The vehicle is armed, or
-- `LOG_MODE` is set to log always
+PX4 logs according to `SDLOG_MODE`:
+- `0` (default): from arming until disarming
+- `1`: from boot until disarming
+- `2`: from boot until shutdown
 
 Logs use the **.ulg** (ULog) format. They can be analyzed in:
 - [Flight Review](https://review.px4.io) (online)

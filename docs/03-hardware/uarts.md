@@ -12,13 +12,13 @@ The 305ap exposes 7 hardware UARTs. Each maps to a NuttX `ttyS` device and a PX4
 
 | UART | `ttyS` | PX4 Port | Default Function | Baud |
 |---|---|---|---|---|
-| USART1 | ttyS0 | — | Motor Telemetry RX | 57600 |
+| USART1 | ttyS0 | — | Motor Telemetry RX (started from SD card) | 115200 |
 | USART2 | ttyS1 | TEL3 | VTX / MSP OSD | 115200 |
 | USART3 | ttyS2 | — | VTX SBUS output | — |
 | UART4 | ttyS3 | TEL1 | Telemetry 1 / MAVLink | 57600 |
 | UART5 | ttyS4 | RC | RC Input | — |
 | USART6 | ttyS5 | GPS1 | GPS | Auto |
-| UART7 | ttyS6 | TEL2 | Telemetry 2 | 57600 |
+| UART7 | ttyS6 | TEL2 | Telemetry 2 (off by default) | 921600 |
 
 ## Port Details
 
@@ -65,7 +65,7 @@ Single-wire half-duplex RC input port. The physical TX pin (PB13) is the signal 
 - Supports SBUS (inverted), CRSF, and other single-wire protocols via PX4's RC driver
 
 :::tip CRSF/ELRS on Telem 1
-For CRSF/ELRS receivers that need a full-duplex UART, connect to **UART4 (Telem 1)** instead and set `SER_UART4_FUNC = RC Input (13)` in QGroundControl.
+CRSF/ELRS RC input works on this port. For CRSF telemetry back to the transmitter, which needs a full-duplex UART, connect to **UART4 (Telem 1)** instead and set `RC_CRSF_PRT_CFG` = TELEM 1 (see [RC Setup](../configuration/rc-setup)).
 :::
 
 ### USART6 — GPS (ttyS5)
@@ -84,9 +84,18 @@ Secondary telemetry port with hardware flow control enabled by default. Intended
 
 ## Changing Port Functions
 
-Port functions are configurable from QGroundControl without a firmware rebuild:
+Port functions are configurable from QGroundControl without a firmware rebuild. In PX4 each function has a parameter that selects its port (TELEM 1, TELEM 2, TELEM 3, GPS 1, RC):
+
+| Function | Port parameter |
+|---|---|
+| MAVLink | `MAV_0_CONFIG`, `MAV_1_CONFIG`, `MAV_2_CONFIG` |
+| GPS | `GPS_1_CONFIG`, `GPS_2_CONFIG` |
+| CRSF RC input | `RC_CRSF_PRT_CFG` |
+| ROS 2 (uXRCE-DDS) | `UXRCE_DDS_CFG` |
+| MSP OSD | `MSP_OSD_CONFIG` |
 
 1. Go to **Vehicle Setup → Parameters**
-2. Search for `SER_` to find serial port assignments
-3. Change the function (e.g. set `SER_UART4_FUNC` to `RC Input` for CRSF on Telem 1)
-4. Reboot. Additional parameters for that function will appear.
+2. Set the function's port parameter (for example `RC_CRSF_PRT_CFG` = TELEM 1 for CRSF on Telem 1), and disable any other function on that port
+3. Reboot. Port settings such as the baud rate (`SER_TEL1_BAUD`, ...) appear after the reboot.
+
+USART1 (motor telemetry) and USART3 (console) have no port name; see [ESC Configuration](../configuration/esc-configuration#esc-telemetry) for starting ESC telemetry on USART1.

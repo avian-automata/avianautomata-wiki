@@ -22,8 +22,10 @@ You also need:
 
 ## Clone PX4
 
+The 305ap board target is in the avian automata PX4 fork (it is not in upstream PX4):
+
 ```bash
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+git clone https://github.com/aaronfuller/PX4-Autopilot.git --recursive
 cd PX4-Autopilot
 ```
 

@@ -8,44 +8,49 @@ sidebar_label: RC Setup
 
 The 305ap supports several RC protocols. Which port and protocol you use depends on your receiver type.
 
-## Option A — SBUS / Single-Wire Protocols (RC IN port)
+## Option A — RC IN Port (SBUS, CRSF/ELRS, and Others)
 
 **Port:** UART5 (ttyS4), labeled **RC IN**
 
-UART5 is configured as a single-wire half-duplex port. The signal line is PB13. Connect your receiver's SBUS output directly to this pin.
+UART5 is configured as a single-wire half-duplex port. The signal line is PB13. Connect your receiver's output to this pin.
 
 This port works with:
 - SBUS (e.g. FrSky, Futaba)
+- CRSF / ELRS (receiver TX to the RC IN signal pin)
 - DSM/DSMX (via spektrum satellite adapter)
 - Single-wire PPM
 
-No QGC configuration is needed. The RC driver activates on this port automatically.
+No QGC configuration is needed. With `RC_INPUT_PROTO` = Auto (the default), the RC driver detects the protocol automatically. CRSF RC input on this port has been verified on the production test jig.
 
-## Option B — CRSF / ELRS (Telem 1 port)
+:::note CRSF telemetry
+CRSF telemetry back to the transmitter (link statistics, battery) needs a full-duplex UART. It has not been verified on the single-wire RC IN port. If you need it, use Option B.
+:::
+
+## Option B — CRSF / ELRS with Telemetry (Telem 1)
 
 **Port:** UART4 (ttyS3), labeled **Telem 1**
 
-CRSF and ELRS require a full-duplex UART. Connect your receiver's TX to the FC's RX (PA1) and the receiver's RX to the FC's TX (PA0).
+Connect your receiver's TX to the FC's RX (PA1) and the receiver's RX to the FC's TX (PA0).
 
 ### Configuration in QGroundControl
 
 1. Go to **Vehicle Setup → Parameters**
-2. Set `SER_UART4_FUNC` = **RC Input (13)**
-3. Reboot the flight controller
-4. Set `RC_INPUT_PROTO` = **CRSF (5)**
-5. Reboot again
+2. Free the port: set `MAV_0_CONFIG` = **Disabled** (MAVLink uses Telem 1 by default)
+3. Set `RC_CRSF_PRT_CFG` = **TELEM 1**
+4. Optionally set `RC_CRSF_TEL_EN` = 1 to send telemetry to the transmitter
+5. Reboot the flight controller
 
-The baud rate for CRSF (420000) is set automatically by the RC driver.
+The CRSF baud rate (420000) is set automatically by the driver.
 
 :::tip ELRS
 ExpressLRS receivers use CRSF protocol. The setup is identical to CRSF above.
 :::
 
-## Option C — CRSF / ELRS (Telem 2 port)
+## Option C — CRSF / ELRS with Telemetry (Telem 2)
 
 **Port:** UART7 (ttyS6), labeled **Telem 2**
 
-Same procedure as Option B but set `SER_UART7_FUNC` = **RC Input (13)** instead.
+Same procedure as Option B but set `RC_CRSF_PRT_CFG` = **TELEM 2** instead. Telem 2 has no function by default, so there is no MAVLink instance to disable.
 
 ## Verifying RC Input
 

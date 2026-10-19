@@ -46,8 +46,8 @@ USART1 and UART5 use single-wire half-duplex mode. The physical TX pin is reconf
 
 | Port | TX | RX | STB Enable | Transceiver |
 |---|---|---|---|---|
-| FDCAN1 | PD1 | PD0 | PA10 (active-high) | SIT1044T/K/3 |
-| FDCAN2 | PB6 | PB5 | PE1 (active-high) | SIT1044T/K/3 |
+| FDCAN1 | PD1 | PD0 | PA10 (active-low) | SIT1044T/K/3 |
+| FDCAN2 | PB6 | PB5 | PE1 (active-low) | SIT1044T/K/3 |
 
 ## PWM Outputs
 

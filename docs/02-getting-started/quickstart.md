@@ -24,11 +24,11 @@ The 305ap stores parameters, logs, and mission data on the SD card. Insert the c
 
 ## Step 2 — Flash Firmware
 
-See [Flashing](../firmware/flashing) for the full guide. The quick version:
+Boards ship with firmware installed, so a new board can skip this step. To update, see [Firmware Install](firmware-install). The quick version:
 
-1. Connect via USB
-2. Open QGroundControl → **Vehicle Setup → Firmware**
-3. Select **PX4 Flight Stack** and flash
+1. Open QGroundControl → **Vehicle Setup → Firmware**, then plug in USB (battery disconnected)
+2. Select **PX4 Flight Stack** → **Advanced settings** → **Custom firmware file...**
+3. Choose the `.px4` release file
 
 ## Step 3 — Connect GPS
 
