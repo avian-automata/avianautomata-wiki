@@ -15,7 +15,7 @@ Start with the MAVLink Console (**QGroundControl → Analyze Tools → MAVLink C
 | QGroundControl doesn't see the board | Charge-only USB cable | Use a data cable |
 | QGroundControl doesn't see the board (Linux) | No permission for the serial port | `sudo usermod -aG dialout $USER`, then **log out and back in**. New group membership only applies to new logins. |
 | QGroundControl connects, then drops repeatedly (Linux) | ModemManager probing the port | `sudo apt remove modemmanager` |
-| No 305ap firmware in QGroundControl's firmware list | The board isn't in upstream PX4 | Install a `.px4` file with **Custom firmware file**; see [Firmware Install](../getting-started/firmware-install) |
+| No 305ap firmware in QGroundControl's firmware list | The board isn't in upstream PX4 | Install a `.px4` file with **Custom firmware file**; see [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware) |
 | Firmware upload never starts | Board was already powered when QGroundControl started waiting | Unplug the battery and USB, then plug in USB while QGroundControl waits |
 
 ## Parameters and Setup

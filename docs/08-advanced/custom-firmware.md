@@ -71,7 +71,7 @@ Prefer the board files over editing shared PX4 code. Board changes are easy to c
 make avianautomata_305ap_default
 ```
 
-Install `build/avianautomata_305ap_default/avianautomata_305ap_default.px4` as described in [Firmware Install](../getting-started/firmware-install), or upload directly:
+Install `build/avianautomata_305ap_default/avianautomata_305ap_default.px4` as described in [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware), or upload directly:
 
 ```bash
 make avianautomata_305ap_default upload

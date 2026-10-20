@@ -6,17 +6,19 @@ sidebar_label: Flashing
 
 # Flashing Firmware
 
+## Firmware Files
+
+| Source | File | When to use |
+|---|---|---|
+| Firmware releases from avian automata (download location to be announced) | `avianautomata_305ap_default_<date>.px4` | Normal updates |
+| Rover releases | `avianautomata_305ap_rover_<date>.px4` | Ground vehicles (see [Rover](../vehicle-types/rover)) |
+| [Building from Source](building-from-source) | `build/avianautomata_305ap_default/avianautomata_305ap_default.px4` | Custom builds |
+
+Releases are named by date. A letter suffix (`20261019b`) marks a second release on the same day. See the [Changelog](../reference/changelog) for what each release changes.
+
 ## Via QGroundControl (Recommended)
 
-The 305ap isn't in upstream PX4, so QGroundControl's built-in PX4 release download doesn't include it. Flash a `.px4` file instead:
-
-1. Unplug the battery and USB, and open QGroundControl.
-2. Go to **Vehicle Setup → Firmware**.
-3. Plug in USB.
-4. Select **PX4 Flight Stack**, tick **Advanced settings**, and choose **Custom firmware file...**.
-5. Select the `avianautomata_305ap_default_<date>.px4` file.
-
-See [Firmware Install](../getting-started/firmware-install) for where to get firmware files.
+Install a `.px4` file with **Custom firmware file...** in **Vehicle Setup → Firmware**. The steps are in [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware).
 
 :::tip
 If QGroundControl does not detect the board, try entering DFU mode manually (see below).
@@ -55,16 +57,19 @@ dfu-util -a 0 -s 0x08020000:leave -D avianautomata_305ap_default.bin
 4. Set start address to `0x08020000`.
 5. Browse to the `.bin` file and click **Start Programming**.
 
-## Via PX4 Bootloader (USB or Serial)
+## Via PX4 Bootloader (Command Line)
 
-If the PX4 bootloader is already installed:
-
-1. Power cycle the board. The bootloader waits 5 seconds for an upload request.
-2. Use QGroundControl or `px_uploader.py` to upload within that window.
+If the PX4 bootloader is installed, the PX4 uploader script in the PX4 source tree can flash a `.px4` file:
 
 ```bash
-python3 Tools/px_uploader.py --port /dev/ttyACM0 build/avianautomata_305ap_default/avianautomata_305ap_default.px4
+python3 Tools/px_uploader.py --port /dev/ttyACM0 avianautomata_305ap_default_<date>.px4
 ```
+
+Start the command, then power-cycle or plug in the board. The bootloader waits 5 seconds after power-up for an upload request, and the uploader waits for it to appear.
+
+## Recovering a Blank or Unresponsive Board
+
+If the board does not show up in QGroundControl at all, the bootloader may be missing or damaged. Use DFU mode to reinstall it (see [Flashing the Bootloader](#flashing-the-bootloader) and [Bootloader](bootloader)), then install firmware with QGroundControl.
 
 ## Flashing the Bootloader
 
@@ -75,3 +80,13 @@ dfu-util -a 0 -s 0x08000000:leave -D avianautomata_305ap_bootloader.bin
 ```
 
 The bootloader occupies sector 0 (`0x08000000`–`0x0801FFFF`, 128 KB). Flashing PX4 firmware does not overwrite the bootloader.
+
+## Checking the Installed Version
+
+In **Analyze Tools → MAVLink Console**:
+
+```
+ver all
+```
+
+The `PX4 git-hash` line identifies the exact build and matches the commit listed in the [Changelog](../reference/changelog). QGroundControl also shows the version under **Vehicle Setup → Summary**.

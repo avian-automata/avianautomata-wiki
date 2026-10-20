@@ -2,6 +2,7 @@
 id: first-flight
 title: First Flight
 sidebar_label: First Flight
+sidebar_position: 2
 ---
 
 # First Flight

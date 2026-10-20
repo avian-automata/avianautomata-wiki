@@ -2,6 +2,7 @@
 id: quickstart
 title: Quickstart
 sidebar_label: Quickstart
+sidebar_position: 1
 ---
 
 # Quickstart
@@ -22,13 +23,28 @@ This page gets you from unboxed board to a flying vehicle as quickly as possible
 
 The 305ap stores parameters, logs, and mission data on the SD card. Insert the card before powering up for the first time. Parameters **will not persist** across reboots without a card.
 
-## Step 2 — Flash Firmware
+## Step 2 — Install Firmware
 
-Boards ship with firmware installed, so a new board can skip this step. To update, see [Firmware Install](firmware-install). The quick version:
+The 305ap runs PX4 built from the avian automata PX4 fork. The board isn't part of upstream PX4, so QGroundControl's built-in **PX4 Flight Stack** download has no firmware for it; install a `.px4` file instead.
 
-1. Open QGroundControl → **Vehicle Setup → Firmware**, then plug in USB (battery disconnected)
-2. Select **PX4 Flight Stack** → **Advanced settings** → **Custom firmware file...**
-3. Choose the `.px4` release file
+Boards ship with the PX4 bootloader and a current firmware release already installed, so a new board can skip to Step 3. Install firmware when updating to a newer release or returning to a release after testing a custom build.
+
+Releases are named `avianautomata_305ap_default_<date>.px4` and are available from avian automata (download location to be announced). See the [Changelog](../reference/changelog) for what each release changes, and [Flashing](../firmware/flashing) for other firmware files and install methods.
+
+1. Unplug the battery and USB, and close any other program using the board.
+2. Open QGroundControl and go to **Vehicle Setup → Firmware**.
+3. Plug in USB. QGroundControl catches the bootloader during its 5 second window at power-up.
+4. Select **PX4 Flight Stack**, tick **Advanced settings**, and choose **Custom firmware file...** from the drop-down.
+5. Click **OK** and pick the `.px4` file.
+6. Wait for the upload to finish. The board reboots into the new firmware.
+
+:::tip
+The bootloader only listens for 5 seconds after power-up, so plugging in USB must be what powers the board. Keep the battery unplugged.
+:::
+
+Parameters are kept on the SD card, so updating firmware does not reset your configuration. After a major update, check **Vehicle Setup** for new warnings. **Vehicle Setup → Summary** shows the installed version.
+
+If the board doesn't show up in QGroundControl at all, see [Flashing](../firmware/flashing#recovering-a-blank-or-unresponsive-board).
 
 ## Step 3 — Connect GPS
 
