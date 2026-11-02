@@ -10,7 +10,7 @@ sidebar_label: Flashing
 
 | Source | File | When to use |
 |---|---|---|
-| Firmware releases from avian automata (download location to be announced) | `avianautomata_305ap_default_<date>.px4` | Normal updates |
+| [Firmware releases](https://github.com/avian-automata/PX4-Autopilot/releases) on GitHub | `avianautomata_305ap_default_<date>.px4` | Normal updates |
 | Rover releases | `avianautomata_305ap_rover_<date>.px4` | Ground vehicles (see [Rover](../vehicle-types/rover)) |
 | [Building from Source](building-from-source) | `build/avianautomata_305ap_default/avianautomata_305ap_default.px4` | Custom builds |
 
@@ -42,8 +42,10 @@ sudo apt install dfu-util    # Debian/Ubuntu
 brew install dfu-util        # macOS
 
 # Flash PX4 firmware
-dfu-util -a 0 -s 0x08020000:leave -D avianautomata_305ap_default.bin
+dfu-util -a 0 -s 0x08020000:leave -D avianautomata_305ap_default_<date>.bin
 ```
+
+Each [release](https://github.com/avian-automata/PX4-Autopilot/releases) includes the firmware as a `.bin` for this. For your own build, use `build/avianautomata_305ap_default/avianautomata_305ap_default.bin`.
 
 :::note Flash address
 `0x08020000` is the PX4 application start address, located in sector 1 immediately after the 128 KB bootloader reservation.
@@ -73,7 +75,7 @@ If the board does not show up in QGroundControl at all, the bootloader may be mi
 
 ## Flashing the Bootloader
 
-If you need to re-flash the PX4 bootloader itself:
+If you need to re-flash the PX4 bootloader itself, download `avianautomata_305ap_bootloader_<date>.bin` from the [firmware releases page](https://github.com/avian-automata/PX4-Autopilot/releases) and flash it in DFU mode:
 
 ```bash
 dfu-util -a 0 -s 0x08000000:leave -D avianautomata_305ap_bootloader.bin

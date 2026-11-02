@@ -17,7 +17,7 @@ The 305ap runs [PX4](https://px4.io), the open-source autopilot. This page descr
 | Board target | `avianautomata_305ap` (`default` and `rover` builds) |
 | Bootloader | PX4 bootloader, see [Bootloader](bootloader) |
 
-The board support lives in the avian automata PX4 fork, under `boards/avianautomata/305ap`. Apart from the board files, the fork follows upstream PX4 and is merged with it periodically. See the [Changelog](../reference/changelog).
+The board support lives in the [avian automata PX4 fork](https://github.com/avian-automata/PX4-Autopilot) on GitHub, under [`boards/avianautomata/305ap`](https://github.com/avian-automata/PX4-Autopilot/tree/main/boards/avianautomata/305ap). Prebuilt firmware and the bootloader are on its [releases page](https://github.com/avian-automata/PX4-Autopilot/releases). Apart from the board files, the fork follows upstream PX4 and is merged with it periodically. See the [Changelog](../reference/changelog).
 
 ## What the Default Firmware Includes
 

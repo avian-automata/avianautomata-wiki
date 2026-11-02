@@ -6,7 +6,7 @@ sidebar_label: Changelog
 
 # Changelog
 
-Firmware releases are named `avianautomata_305ap_default_<date>.px4`. A letter suffix marks a second (or third) release on the same day. Check which build a board runs with `ver all` in the MAVLink Console: the `PX4 git-hash` line matches the commit listed below.
+Firmware releases are named `avianautomata_305ap_default_<date>.px4` and are downloaded from the [firmware releases page](https://github.com/avian-automata/PX4-Autopilot/releases) on GitHub, together with the bootloader. A letter suffix marks a second (or third) release on the same day. Check which build a board runs with `ver all` in the MAVLink Console: the `PX4 git-hash` line matches the commit listed below.
 
 ## Firmware
 

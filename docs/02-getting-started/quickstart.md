@@ -25,11 +25,11 @@ The 305ap stores parameters, logs, and mission data on the SD card. Insert the c
 
 ## Step 2 — Install Firmware
 
-The 305ap runs PX4 built from the avian automata PX4 fork. The board isn't part of upstream PX4, so QGroundControl's built-in **PX4 Flight Stack** download has no firmware for it; install a `.px4` file instead.
+The 305ap runs PX4 built from the [avian automata PX4 fork](https://github.com/avian-automata/PX4-Autopilot). The board isn't part of upstream PX4, so QGroundControl's built-in **PX4 Flight Stack** download has no firmware for it; install a `.px4` file instead.
 
 Boards ship with the PX4 bootloader and a current firmware release already installed, so a new board can skip to Step 3. Install firmware when updating to a newer release or returning to a release after testing a custom build.
 
-Releases are named `avianautomata_305ap_default_<date>.px4` and are available from avian automata (download location to be announced). See the [Changelog](../reference/changelog) for what each release changes, and [Flashing](../firmware/flashing) for other firmware files and install methods.
+Releases are named `avianautomata_305ap_default_<date>.px4` and are on the [firmware releases page](https://github.com/avian-automata/PX4-Autopilot/releases) on GitHub. See the [Changelog](../reference/changelog) for what each release changes, and [Flashing](../firmware/flashing) for other firmware files and install methods.
 
 1. Unplug the battery and USB, and close any other program using the board.
 2. Open QGroundControl and go to **Vehicle Setup → Firmware**.

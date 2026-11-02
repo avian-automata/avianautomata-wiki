@@ -44,10 +44,10 @@ Use `param set-default` (not `param set`) in `config.txt`. A default still lets 
 
 ### Get the Source
 
-The 305ap board target is in the avian automata PX4 fork:
+The 305ap board target is in the [avian automata PX4 fork](https://github.com/avian-automata/PX4-Autopilot) on GitHub:
 
 ```bash
-git clone https://github.com/aaronfuller/PX4-Autopilot.git --recursive
+git clone https://github.com/avian-automata/PX4-Autopilot.git --recursive
 cd PX4-Autopilot
 ```
 

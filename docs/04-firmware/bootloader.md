@@ -52,7 +52,7 @@ You only need this for a blank board or if the bootloader itself is damaged (the
 3. Power-cycle. The board should enumerate as `PX4 BL 305AP` and blink blue for 5 seconds.
 4. Install firmware as described in [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware).
 
-The bootloader binary is built with `make avianautomata_305ap_bootloader` (see [Building from Source](building-from-source)). A prebuilt copy is kept in the board directory at `boards/avianautomata/305ap/extras/avianautomata_305ap_bootloader.bin`.
+The bootloader binary is built with `make avianautomata_305ap_bootloader` (see [Building from Source](building-from-source)). A prebuilt copy is attached to each [firmware release](https://github.com/avian-automata/PX4-Autopilot/releases) as `avianautomata_305ap_bootloader_<date>.bin`, and kept in the board directory at [`boards/avianautomata/305ap/extras/avianautomata_305ap_bootloader.bin`](https://github.com/avian-automata/PX4-Autopilot/blob/main/boards/avianautomata/305ap/extras/avianautomata_305ap_bootloader.bin).
 
 :::note
 The bootloader changes rarely. Updating PX4 firmware does not require a new bootloader.

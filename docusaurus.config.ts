@@ -14,7 +14,7 @@ const config: Config = {
   url: 'https://docs.avianautomata.com',
   baseUrl: '/',
 
-  organizationName: 'avianautomata',
+  organizationName: 'avian-automata',
   projectName: 'avianautomata-wiki',
   trailingSlash: false,
 
@@ -34,7 +34,7 @@ const config: Config = {
           path: 'docs',
           routeBasePath: '305ap',
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/avianautomata/avianautomata-wiki/edit/main/',
+          editUrl: 'https://github.com/avian-automata/avianautomata-wiki/edit/main/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
@@ -104,6 +104,12 @@ const config: Config = {
             { label: '305ap Flight Controller', to: '/305ap/intro' },
           ],
         },
+        {
+          href: 'https://github.com/avian-automata/PX4-Autopilot',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': '305ap PX4 firmware on GitHub',
+        },
       ],
     },
 
@@ -121,6 +127,13 @@ const config: Config = {
           title: 'Products',
           items: [
             { label: '305ap Flight Controller', to: '/305ap/intro' },
+          ],
+        },
+        {
+          title: 'Firmware',
+          items: [
+            { label: 'Firmware Releases', href: 'https://github.com/avian-automata/PX4-Autopilot/releases' },
+            { label: 'PX4 Source on GitHub', href: 'https://github.com/avian-automata/PX4-Autopilot' },
           ],
         },
         {
