@@ -11,7 +11,7 @@ sidebar_label: Flashing
 | Source | File | When to use |
 |---|---|---|
 | [Firmware releases](https://github.com/avian-automata/PX4-Autopilot/releases) on GitHub | `avianautomata_305ap_default_<date>.px4` | Normal updates |
-| Rover releases | `avianautomata_305ap_rover_<date>.px4` | Ground vehicles (see [Rover](../vehicle-types/rover)) |
+| Rover firmware (no release yet; [build it from source](building-from-source)) | `build/avianautomata_305ap_rover/avianautomata_305ap_rover.px4` | Ground vehicles (see [Rover](../vehicle-types/rover)) |
 | [Building from Source](building-from-source) | `build/avianautomata_305ap_default/avianautomata_305ap_default.px4` | Custom builds |
 
 Releases are named by date. A letter suffix (`20261019b`) marks a second release on the same day. See the [Changelog](../reference/changelog) for what each release changes.

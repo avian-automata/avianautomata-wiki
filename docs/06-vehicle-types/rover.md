@@ -16,9 +16,9 @@ The rover build uses the standard PX4 rover modules and is supported by the firm
 
 | Build target | File |
 |---|---|
-| `avianautomata_305ap_rover` | `avianautomata_305ap_rover_<date>.px4` |
+| `avianautomata_305ap_rover` | `build/avianautomata_305ap_rover/avianautomata_305ap_rover.px4` |
 
-Install it like any other firmware (see [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware)), or build it with `make avianautomata_305ap_rover`.
+There is no prebuilt rover release yet. Build it with `make avianautomata_305ap_rover` (see [Building from Source](../firmware/building-from-source)) and install the `.px4` file like any other firmware (see [Quickstart, Step 2](../getting-started/quickstart#step-2--install-firmware)).
 
 Compared with the default firmware, the rover build:
 
