@@ -12,7 +12,7 @@ Firmware releases are named `avianautomata_305ap_default_<date>.px4` and are dow
 
 ### 20261104
 
-Commit `7c2aa6ee93`
+Commit `f25a86710c`
 
 - **Fixed:** boards with the LSM6DSV16X IMU read as upside down when level, because the IMU rotation was wrong. Accelerometer calibration detected the wrong side, and the attitude was inverted. Boards with the ICM-45686 were not affected.
 
