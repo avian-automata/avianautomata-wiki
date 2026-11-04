@@ -42,12 +42,7 @@ Or watch the boot log — each driver prints its device name and bus on successf
 
 ## Orientation
 
-Both IMU slots have the same physical orientation. A board can be fitted with either part, and the firmware applies the rotation that matches the part it finds:
-
-| Part | Rotation | Driver option |
-|---|---|---|
-| LSM6DSV16X | `ROLL_180_YAW_90` | `-R 10` |
-| ICM-45686 | `YAW_90` | `-R 2` |
+Both IMU slots have the same physical orientation, whichever part is fitted, and the firmware applies the same rotation to both parts: `YAW_90` (driver option `-R 2`).
 
 No setting is needed for the onboard IMUs. Forward is the edge with the power connector; the SD card is at the rear. If the board is mounted at a different angle in the frame, set the board rotation instead: **`SENS_BOARD_ROT`** (QGroundControl: **Vehicle Setup → Sensors → Autopilot Orientation**). It applies to all onboard sensors.
 
