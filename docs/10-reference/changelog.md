@@ -16,10 +16,6 @@ Commit `7c2aa6ee93`
 
 - **Fixed:** boards with the LSM6DSV16X IMU read as upside down when level, because the IMU rotation was wrong. Accelerometer calibration detected the wrong side, and the attitude was inverted. Boards with the ICM-45686 were not affected.
 
-:::danger Do not fly 20261017 through 20261019b on LSM6DSV16X boards
-Update to 20261104 or later, then redo the accelerometer calibration. To see which IMU a board has, run `listener sensor_accel` in the MAVLink Console: `Type: 0x12` is the LSM6DSV16X and `Type: 0x34` is the ICM-45686.
-:::
-
 ### 20261019b
 
 Commit `7bee2faa81` · PX4 1.18 development line, NuttX 12.12
