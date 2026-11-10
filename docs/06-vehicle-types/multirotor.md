@@ -16,7 +16,7 @@ With eight motor outputs, the 305ap can drive any PX4 multirotor geometry up to 
 
 1. **Airframe:** in **Vehicle Setup → Airframe**, pick the closest frame (for example **Generic Quadcopter**) and apply. The board has no default airframe, so this step is required.
 2. **Geometry and outputs:** in **Vehicle Setup → Actuators**, check the motor positions and spin directions match your frame, and assign each output (**MAIN 1–8**) to its motor.
-3. **Output protocol:** set the protocol for every timer group the motors use. Only MAIN 1–2 default to DShot. See [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups).
+3. **Output protocol:** all outputs default to DShot300. To use another protocol, set it for every timer group the motors use. See [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups).
 4. **Motor test:** with propellers off, spin each motor from the Actuators tab and confirm position and direction.
 5. **Sensors, radio, flight modes and power:** see [QGroundControl Setup](../configuration/qgc-setup).
 
