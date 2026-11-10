@@ -24,7 +24,7 @@ The 305ap connector layout is designed for clean wire routing in a typical FPV s
 | CAN1 | Side | 4-pin JST-GH, FDCAN1 |
 | CAN2 | Side | 4-pin JST-GH, FDCAN2 |
 | RC IN | Side | 3-pin JST-GH, single-wire (SBUS/CRSF) |
-| VTX | Side | 6-pin JST-GH, 9 V + UART2 + SBUS out |
+| VTX | Side | 6-pin JST-GH, 9 V + UART2 + debug console |
 | External I2C | Side | 4-pin JST-GH |
 | External SPI | Side | 7-pin JST-GH |
 | microSD | Bottom | Push-push slot, card detect supported |
@@ -32,7 +32,7 @@ The 305ap connector layout is designed for clean wire routing in a typical FPV s
 ## Top Side
 
 - STM32H743VIH6 MCU (TFBGA100)
-- 2× IMU slots (SPI2, SPI3) — ST LSM6DSV or TDK InvenSense ICM-45686, auto-detected at boot
+- 2× IMU slots (SPI2, SPI3) — ST LSM6DSV16X or TDK InvenSense ICM-45686, auto-detected at boot
 - BMP581 barometer (SPI)
 - MMC5983MA magnetometer (I2C, internal)
 - SIT1044T CAN transceivers

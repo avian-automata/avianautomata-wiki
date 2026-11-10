@@ -227,7 +227,7 @@ Stock firmware runs `msp_osd` on USART2 at 115200 baud (`MSP_OSD_CONFIG=103`, TE
 | 2 | RC\_IN | UART5 (PB13) — SBUS, CRSF, or other single-wire serial protocol (PPM is not supported) |
 | 3 | GND | — |
 
-Single-wire input via UART5 SINGLEWIRE+SWAP. CRSF and uninverted ELRS are fully supported. For SBUS, PX4 uses hardware UART inversion on the STM32H7. For CRSF/ELRS receivers that need a full-duplex UART, connect to TELEM 1 or TELEM 2 and reassign the port function in QGroundControl.
+Single-wire input via UART5 in half-duplex mode on its TX pin, with no RX/TX swap. CRSF and uninverted ELRS are fully supported. For SBUS, PX4 uses hardware UART inversion on the STM32H7. For CRSF/ELRS receivers that need a full-duplex UART, connect to TELEM 1 or TELEM 2 and reassign the port function in QGroundControl.
 
 ---
 

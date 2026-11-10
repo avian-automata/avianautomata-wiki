@@ -10,6 +10,18 @@ Firmware releases are named `avianautomata_305ap_default_<date>.px4` and are dow
 
 ## Firmware
 
+### 20261107
+
+Commit `6e9da2eafa`
+
+- **Updated:** PX4 to the current upstream `main`.
+
+### 20261105
+
+Commit `f253a9ba36`
+
+- **Changed:** board ID is now `6700`, the ID reserved for the 305AP. Boards with an older bootloader need the 20261105 bootloader first, installed once [through DFU](../firmware/bootloader#reinstalling-the-bootloader).
+
 ### 20261104
 
 Commit `f25a86710c`
@@ -66,10 +78,11 @@ Commit `23cbe44f59`
 
 | Release | Notes |
 |---|---|
-| 20260429 | Current bootloader. |
-| 20260308 | Earlier bootloader. |
+| 20261105 | Current bootloader. Board ID `6700`. |
+| 20260429 | Board ID `12100`. |
+| 20260308 | Board ID `12100`. |
 
-Updating the bootloader is not needed for any firmware release listed above. See [Bootloader](../firmware/bootloader).
+Firmware from 20261105 onward needs the 20261105 bootloader or newer, because of the board ID change. Older firmware needs a bootloader with board ID `12100`. See [Bootloader](../firmware/bootloader).
 
 ## Hardware
 

@@ -69,7 +69,7 @@ Multiple instances (`instance 0` and `instance 1`) confirm both IMUs are active.
 
 ## Sensor Specifications
 
-### ST LSM6DSV (primary)
+### ST LSM6DSV16X (primary)
 
 | Specification | Value |
 |---|---|

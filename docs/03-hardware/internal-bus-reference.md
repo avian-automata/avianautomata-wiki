@@ -17,12 +17,12 @@ MCU-level GPIO assignments and internal bus connections. Use this as the signal-
 | USART2 | ttyS1 | VTX / TEL3 | PD5 | PD6 | — | — | |
 | USART3 | ttyS2 | VTX SBUS / Debug Console | PD8 | — | — | — | TX only. PD9 is RED LED — no RX possible. |
 | UART4 | ttyS3 | Telem 1 | PA0 | PA1 | PB14 | PB0 | HW flow control supported (`MAV_0_FLOW_CTRL`). |
-| UART5 | ttyS4 | RC Input | PB13 | — | — | — | SINGLEWIRE + SWAP. PB12 is GREEN LED — cannot be used as UART5 RTS. |
+| UART5 | ttyS4 | RC Input | PB13 | — | — | — | SINGLEWIRE, no swap. PB12 is GREEN LED — cannot be used as UART5 RTS. |
 | USART6 | ttyS5 | GPS | PC6 | PC7 | — | — | |
 | UART7 | ttyS6 | Telem 2 | PE8 | PE7 | PE9 | PE10 | HW flow control enabled by default. |
 
 :::note SINGLEWIRE ports
-USART1 and UART5 use single-wire half-duplex mode. The physical TX pin is reconfigured as the RX line via the SWAP setting. Do not wire a normal RX signal to these ports.
+USART1 and UART5 use single-wire half-duplex mode on the physical TX pin. USART1 also uses the SWAP setting (`dshot telemetry -x`); UART5 does not. Do not wire a normal RX signal to these ports.
 :::
 
 ## I2C

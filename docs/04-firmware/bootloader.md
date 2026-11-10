@@ -31,7 +31,7 @@ Uploading firmware erases and writes the application area only. The bootloader i
 
 | Field | Value |
 |---|---|
-| Board ID | `12100` |
+| Board ID | `6700` |
 | USB product (bootloader) | `PX4 BL 305AP` |
 | USB product (application) | `305AP` |
 | USB VID / PID | `0x1B8C` / `0x0036` |
@@ -55,7 +55,7 @@ You only need this for a blank board or if the bootloader itself is damaged (the
 The bootloader binary is built with `make avianautomata_305ap_bootloader` (see [Building from Source](building-from-source)). A prebuilt copy is attached to each [firmware release](https://github.com/avian-automata/PX4-Autopilot/releases) as `avianautomata_305ap_bootloader_<date>.bin`, and kept in the board directory at [`boards/avianautomata/305ap/extras/avianautomata_305ap_bootloader.bin`](https://github.com/avian-automata/PX4-Autopilot/blob/main/boards/avianautomata/305ap/extras/avianautomata_305ap_bootloader.bin).
 
 :::note
-The bootloader changes rarely. Updating PX4 firmware does not require a new bootloader.
+The bootloader changes rarely, and updating PX4 firmware normally does not need a new one. The exception is the move to board ID `6700` in release 20261105: see the [Changelog](../reference/changelog).
 :::
 
 ## Troubleshooting

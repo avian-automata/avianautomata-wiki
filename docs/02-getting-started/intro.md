@@ -36,7 +36,7 @@ The 305ap is a compact, high-performance flight controller for multirotor, fixed
 
 | Sensor | Part | Interface |
 |---|---|---|
-| IMU (×2, redundant) | ST LSM6DSV (primary) / TDK InvenSense ICM-45686 (fallback) | SPI2, SPI3 |
+| IMU (×2, redundant) | ST LSM6DSV16X (primary) / TDK InvenSense ICM-45686 (fallback) | SPI2, SPI3 |
 | Barometer | Bosch BMP581 | SPI1 |
 | Magnetometer | MEMSIC MMC5983MA | I2C1 |
 
@@ -75,7 +75,7 @@ The 305ap is a compact, high-performance flight controller for multirotor, fixed
 
 ## Design Notes
 
-- **Dual IMUs.** Two IMU slots on SPI2 and SPI3. Each slot supports the ST LSM6DSV (primary) or TDK InvenSense ICM-45686 (fallback) — firmware auto-detects at boot via WHO_AM_I. PX4 runs sensor voting across both and falls back if one diverges.
+- **Dual IMUs.** Two IMU slots on SPI2 and SPI3. Each slot supports the ST LSM6DSV16X (primary) or TDK InvenSense ICM-45686 (fallback) — firmware auto-detects at boot via WHO_AM_I. PX4 runs sensor voting across both and falls back if one diverges.
 - **Low-noise sensor rail.** The IMUs, barometer, and magnetometer are powered from a separate RT9193 ultra-low-noise 3.3 V LDO, isolated from the main digital 3.3 V switcher via a ferrite bead.
 - **Wide input voltage.** The VBAT path uses an LM74700-Q1 ideal-diode controller with an external N-FET, providing 2S–6S input support with low forward drop and protection against reverse polarity.
 - **Dedicated 9 V rail.** A second AP63357 buck provides a stable 9 V rail for VTX/OSD power, independent of the 5 V peripheral rail.

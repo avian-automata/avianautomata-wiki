@@ -14,7 +14,7 @@ The 305ap exposes 7 hardware UARTs. Each maps to a NuttX `ttyS` device and a PX4
 |---|---|---|---|---|
 | USART1 | ttyS0 | — | Motor Telemetry RX (started from SD card) | 115200 |
 | USART2 | ttyS1 | TEL3 | VTX / MSP OSD | 115200 |
-| USART3 | ttyS2 | — | VTX SBUS output | — |
+| USART3 | ttyS2 | — | Debug console (VTX connector, `VTX_SBUS` pin) | — |
 | UART4 | ttyS3 | TEL1 | Telemetry 1 / MAVLink | 57600 |
 | UART5 | ttyS4 | RC | RC Input | — |
 | USART6 | ttyS5 | GPS1 | GPS | Auto |
@@ -45,7 +45,6 @@ TX-only port. PD9 (the red LED) occupies the physical RX pin position, so no RX 
 
 - TX: PD8
 - Used as the NuttX debug console (boot messages appear here)
-- Can output SBUS to a VTX/OSD if reconfigured
 
 ### UART4 — Telem 1 (ttyS3)
 
@@ -57,7 +56,7 @@ Primary telemetry port. Supports hardware flow control.
 
 ### UART5 — RC Input (ttyS4)
 
-**Mode:** SINGLEWIRE + SWAP
+**Mode:** SINGLEWIRE (no swap)
 
 Single-wire half-duplex RC input port. The physical TX pin (PB13) is the signal line. PB12 is the green LED and is not available.
 
