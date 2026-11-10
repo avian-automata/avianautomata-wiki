@@ -35,7 +35,7 @@ Start with the MAVLink Console (**QGroundControl → Analyze Tools → MAVLink C
 | Servos or PWM ESCs don't respond | Every group defaults to DShot300 | Set `PWM_MAIN_TIMn` to PWM for those groups; see [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups) |
 | A servo jitters or doesn't move | Servo shares a timer group with DShot or fast PWM | Move servos to their own group at 50 Hz |
 | Motors don't spin on USB power | ESCs and outputs need battery power | Connect the battery |
-| No ESC telemetry (RPM, temperature) | Telemetry driver not started | Add `dshot telemetry -d /dev/ttyS0 -x` to `/fs/microsd/etc/extras.txt`; see [ESC Configuration](../configuration/esc-configuration#esc-telemetry) |
+| No ESC telemetry (RPM, temperature) | No motors assigned, outputs not on DShot, or no telemetry wire | Assign motors in **Actuators**, use DShot, and connect the ESC telemetry wire to `Motors` pin 3; see [ESC Configuration](../configuration/esc-configuration#esc-telemetry) |
 
 ## Power Monitoring
 

@@ -93,4 +93,4 @@ USART1 (ttyS0) is dedicated to **single-wire ESC serial telemetry** from BLHeli3
 
 To enable, configure your ESC firmware to output serial telemetry and connect the telemetry wire to the USART1 pin (PA9) on the motor connector.
 
-USART1 has no port name in QGroundControl, so start the telemetry driver from the SD card: add `dshot telemetry -d /dev/ttyS0 -x` to `/fs/microsd/etc/extras.txt`. See [ESC Configuration](../configuration/esc-configuration#esc-telemetry).
+The firmware starts ESC telemetry on USART1 automatically. See [ESC Configuration](../configuration/esc-configuration#esc-telemetry).

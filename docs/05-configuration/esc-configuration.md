@@ -83,7 +83,7 @@ This input is on USART1 (`/dev/ttyS0`). The firmware starts ESC telemetry on it 
 listener esc_status
 ```
 
-Telemetry needs DShot outputs with motors assigned. See [Custom Firmware](../advanced/custom-firmware) for more on startup files.
+Telemetry needs DShot outputs with motors assigned.
 
 ## Current Sensing
 
