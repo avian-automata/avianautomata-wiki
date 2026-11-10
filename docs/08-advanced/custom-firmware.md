@@ -24,12 +24,9 @@ PX4 checks the SD card for these files during boot:
 
 The files are NSH scripts: one command per line, `#` for comments. Create the `etc` folder on the card if it doesn't exist.
 
-Example `extras.txt` that starts ESC telemetry on the motor connector and an MS5611 barometer on the external SPI port:
+Example `extras.txt` that starts an MS5611 barometer on the external SPI port:
 
 ```sh
-# ESC serial telemetry on the motor connector (USART1, single-wire)
-dshot telemetry -d /dev/ttyS0 -x
-
 # MS5611 on external SPI, chip select 2
 ms5611 -S -b 1 -c 2 start
 ```

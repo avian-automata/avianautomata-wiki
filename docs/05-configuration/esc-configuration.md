@@ -77,13 +77,7 @@ PWM ESCs need a throttle range calibration. Run it in **Vehicle Setup → Power 
 
 ESCs with serial telemetry (BLHeli32, AM32) report RPM, voltage, current and temperature on the **MOTOR\_TELEM\_RX** pin. Connect the ESC telemetry wire to pin 3.
 
-This input is on USART1 (`/dev/ttyS0`), which has no QGroundControl port name, so the telemetry driver is started from the SD card. Create `/fs/microsd/etc/extras.txt` containing:
-
-```sh
-dshot telemetry -d /dev/ttyS0 -x
-```
-
-Then reboot. PX4 publishes the values in the `esc_status` topic and in MAVLink `ESC_STATUS`. Check with:
+This input is on USART1 (`/dev/ttyS0`). The firmware starts ESC telemetry on it automatically, so no setup is needed. ESCs without a telemetry wire are not affected. PX4 publishes the values in the `esc_status` topic and in MAVLink `ESC_STATUS`. Check with:
 
 ```
 listener esc_status
