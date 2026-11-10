@@ -20,7 +20,7 @@ Commit `6e9da2eafa`
 
 Commit `f253a9ba36`
 
-- **Changed:** board ID is now `6700`, the ID reserved for the 305AP. Boards with an older bootloader need the 20261105 bootloader first, installed once [through DFU](../firmware/bootloader#reinstalling-the-bootloader).
+- **Changed:** board ID is now `6700`, the ID reserved for the 305AP.
 
 ### 20261104
 
@@ -82,7 +82,7 @@ Commit `23cbe44f59`
 | 20260429 | Board ID `12100`. |
 | 20260308 | Board ID `12100`. |
 
-Firmware from 20261105 onward needs the 20261105 bootloader or newer, because of the board ID change. Older firmware needs a bootloader with board ID `12100`. See [Bootloader](../firmware/bootloader).
+See [Bootloader](../firmware/bootloader).
 
 ## Hardware
 

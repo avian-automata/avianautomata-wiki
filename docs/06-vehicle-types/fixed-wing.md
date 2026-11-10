@@ -23,7 +23,7 @@ Control surfaces use servos at 50 Hz PWM, and the motor uses an ESC. The eight o
 | TIM3 | MAIN 5–6 | Elevator, rudder | PWM 50 Hz |
 | TIM4 | MAIN 7–8 | Flaps, other servos | PWM 50 Hz |
 
-Assign the functions in **Vehicle Setup → Actuators** after selecting the airframe. Check each surface moves the right way with the actuator sliders before flying.
+All groups default to DShot300, so set the servo groups to PWM 50 Hz. Assign the functions in **Vehicle Setup → Actuators** after selecting the airframe. Check each surface moves the right way with the actuator sliders before flying.
 
 :::warning Servo power
 Power servos from a separate BEC sized for them, not from the board's 5 V pins. Servos draw large, changing currents, and current on the board's 5 V rail disturbs the onboard compass (see [Magnetometer](../hardware/magnetometer#magnetic-interference)).

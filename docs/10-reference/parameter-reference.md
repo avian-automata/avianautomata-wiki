@@ -19,7 +19,7 @@ The firmware sets these defaults for the 305ap (`rc.board_defaults`). A paramete
 | `BAT1_V_DIV` | 11.0 | Battery voltage divider on the board (1/11) |
 | `BAT1_A_PER_V` | 0 | No onboard current sensor; set it when you connect one |
 | `SYS_HAS_MAG` | 1 | Onboard MMC5983MA compass |
-| `PWM_MAIN_TIM0` | -4 (DShot300) | DShot on MAIN 1–2 |
+| `PWM_MAIN_TIM0`–`TIM3` | -4 (DShot300) | DShot on all outputs |
 | `RC_INPUT_PROTO` | -1 (auto) | Detect the RC protocol on RC IN |
 | `CBRK_SUPPLY_CHK` | 894281 | Supply check bypassed: the board has no USB power sensing |
 | `MSP_OSD_CONFIG` | TELEM 3 | MSP OSD on the VTX connector |
@@ -39,7 +39,7 @@ The firmware sets these defaults for the 305ap (`rc.board_defaults`). A paramete
 | Parameter | Default | Notes |
 |---|---|---|
 | `PWM_MAIN_FUNC1`–`8` | 0 (disabled) | Function per output; set in **Actuators** |
-| `PWM_MAIN_TIM0`–`TIM3` | DShot300, then PWM 400 Hz | Protocol per timer group (MAIN 1–2, 3–4, 5–6, 7–8) |
+| `PWM_MAIN_TIM0`–`TIM3` | DShot300 | Protocol per timer group (MAIN 1–2, 3–4, 5–6, 7–8) |
 | `PWM_MAIN_DIS1`–`8` | 1000 µs | PWM value when disarmed |
 | `DSHOT_MIN` | 0.055 | Minimum DShot throttle when armed |
 

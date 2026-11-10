@@ -35,12 +35,12 @@ The eight outputs are driven by four timers. All outputs on one timer share one 
 | Timer group | Outputs | Protocol parameter | Stock setting |
 |---|---|---|---|
 | TIM1 | MAIN 1–2 | `PWM_MAIN_TIM0` | DShot300 |
-| TIM2 | MAIN 3–4 | `PWM_MAIN_TIM1` | PWM 400 Hz |
-| TIM3 | MAIN 5–6 | `PWM_MAIN_TIM2` | PWM 400 Hz |
-| TIM4 | MAIN 7–8 | `PWM_MAIN_TIM3` | PWM 400 Hz |
+| TIM2 | MAIN 3–4 | `PWM_MAIN_TIM1` | DShot300 |
+| TIM3 | MAIN 5–6 | `PWM_MAIN_TIM2` | DShot300 |
+| TIM4 | MAIN 7–8 | `PWM_MAIN_TIM3` | DShot300 |
 
-:::warning Set every group your motors use
-Only MAIN 1–2 default to DShot. For a quad on DShot, also set `PWM_MAIN_TIM1` (MAIN 3–4) to DShot, or motors 3 and 4 receive PWM. In QGroundControl the protocol is selected per timer group in the **Actuators** tab.
+:::warning Servos and PWM ESCs
+Every group defaults to DShot300. Set a group to PWM if it drives servos or PWM-only ESCs. In QGroundControl the protocol is selected per timer group in the **Actuators** tab.
 :::
 
 Values for `PWM_MAIN_TIMn`:

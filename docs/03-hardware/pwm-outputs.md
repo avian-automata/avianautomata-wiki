@@ -56,7 +56,7 @@ Or set directly in **Parameters**:
 |---|---|
 | `PWM_MAIN_TIM0`–`PWM_MAIN_TIM3` | Protocol per timer group: `-5`/`-4`/`-3` = DShot150/300/600, `-1` = OneShot, `50`–`400` = PWM rate in Hz |
 
-Only MAIN 1–2 default to DShot300; the other groups default to PWM 400 Hz. See [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups).
+All four groups default to DShot300. See [ESC Configuration](../configuration/esc-configuration#output-protocols-and-timer-groups).
 
 ## Motor Order
 
