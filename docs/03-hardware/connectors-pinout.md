@@ -47,7 +47,7 @@ The +5V pins on all connectors come from the board's 5 V rail. A load on them th
 
 Pins 1–3 are paralleled for current capacity and lower contact resistance. Pins 4–6 are paralleled ground. This connector feeds the board's protected VBAT input (fuse → TVS → ideal-diode front end).
 
-**Input voltage:** 2S–6S LiPo / Li-ion (approximately 7–25.2 V).
+**Input voltage:** 2S–6S LiPo / Li-ion (6.4–25.2 V). Absolute maximum 35 V.
 
 ---
 
@@ -171,7 +171,7 @@ Signal lines pulled up to 3.3 V on-board. I2C data is 3.3 V logic. Do not connec
 
 ## Motors — U21
 
-**12-pin connector.** 8 motor outputs, ESC telemetry, and current sense.
+**12-pin JST-GH.** 8 motor outputs, ESC telemetry, and current sense.
 
 | Pin | Signal | Notes |
 |---|---|---|
@@ -199,13 +199,17 @@ Motor outputs support PWM, OneShot, and DSHOT. ESC telemetry (pin 3) is single-w
 | Pin | Signal | Notes |
 |---|---|---|
 | 1 | +9V | Regulated from onboard AP63357 9 V buck, independent of 5 V rail |
-| 2 | VTX\_UART\_TX | USART2 TX (PD5) — MSP DisplayPort OSD to VTX/goggles (default) |
-| 3 | VTX\_UART\_RX | USART2 RX (PD6) |
-| 4 | GND | — |
-| 5 | VTX\_SBUS | USART3 TX (PD8) — SBUS out (TX only; PD9 is the red LED) |
-| 6 | GND | — |
+| 2 | GND | — |
+| 3 | VTX\_UART\_TX | USART2 TX (PD5) — MSP DisplayPort OSD to VTX/goggles (default) |
+| 4 | VTX\_UART\_RX | USART2 RX (PD6) |
+| 5 | GND | — |
+| 6 | VTX\_SBUS | USART3 TX (PD8) — debug console output (TX only; PD9 is the red LED) |
 
-The 9 V rail is available whenever the board is powered from battery. It is not available from USB power alone.
+The 9 V rail is available whenever the board is powered from battery. It is not available from USB power alone. On 2S, the battery is below 9 V, so the rail follows the battery voltage instead of regulating to 9 V.
+
+:::warning Leave the SBUS wire unconnected
+On common 6-pin digital VTX harnesses, pin 6 carries SBUS from the air unit into the flight controller. On the 305ap this pin is a USART3 output driven by the console, so both ends would drive the same wire. Do not connect that wire.
+:::
 
 :::note MSP OSD ships enabled
 Stock firmware runs `msp_osd` on USART2 at 115200 baud (`MSP_OSD_CONFIG=103`, TELEM 3). Compatible goggles receive an OSD overlay as soon as the FC boots — no additional configuration needed. Note that the on-screen battery reading is **average per-cell voltage**, not pack voltage (3.7-3.8 V/cell is normal at rest).
@@ -215,12 +219,12 @@ Stock firmware runs `msp_osd` on USART2 at 115200 baud (`MSP_OSD_CONFIG=103`, TE
 
 ## RC IN — U22
 
-**3-pin.** RC receiver input.
+**3-pin JST-GH.** RC receiver input.
 
 | Pin | Signal | Notes |
 |---|---|---|
 | 1 | +5V | Receiver power |
-| 2 | RC\_IN | UART5 (PB13) — SBUS, CRSF, PPM, or other single-wire protocol |
+| 2 | RC\_IN | UART5 (PB13) — SBUS, CRSF, or other single-wire serial protocol (PPM is not supported) |
 | 3 | GND | — |
 
 Single-wire input via UART5 SINGLEWIRE+SWAP. CRSF and uninverted ELRS are fully supported. For SBUS, PX4 uses hardware UART inversion on the STM32H7. For CRSF/ELRS receivers that need a full-duplex UART, connect to TELEM 1 or TELEM 2 and reassign the port function in QGroundControl.

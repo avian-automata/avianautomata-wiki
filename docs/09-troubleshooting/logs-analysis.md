@@ -75,9 +75,9 @@ dmesg
 
 ### Hardware Console
 
-The same messages, including crash dumps, are also sent out of the **VTX** connector, pin 5 (VTX\_SBUS, USART3 TX), at **57600 baud, 8N1**. This works even when USB is not available, which makes it the best way to see what happens during a reset.
+The same messages, including crash dumps, are also sent out of the **VTX** connector, pin 6 (VTX\_SBUS, USART3 TX), at **57600 baud, 8N1**. This works even when USB is not available, which makes it the best way to see what happens during a reset.
 
-1. Connect a 3.3 V USB-to-serial adapter: adapter RX to VTX pin 5, adapter GND to VTX pin 4 or 6.
+1. Connect a 3.3 V USB-to-serial adapter: adapter RX to VTX pin 6, adapter GND to VTX pin 2 or 5.
 2. Open the port at 57600 baud (for example `picocom -b 57600 /dev/ttyUSB0`).
 3. Power the board.
 

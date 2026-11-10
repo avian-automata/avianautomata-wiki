@@ -40,7 +40,7 @@ Ground vehicles use the separate **rover** build, which drops the flying-vehicle
 
 - PWM, OneShot and DShot motor outputs, DShot ESC telemetry
 - DroneCAN on both CAN ports (sensors, ESCs, servos)
-- RC input (SBUS, CRSF, DSM, PPM and others)
+- RC input (SBUS, CRSF, DSM and others)
 - MSP OSD on the VTX port
 - Tone alarm (buzzer) and RGB status LEDs
 

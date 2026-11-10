@@ -8,7 +8,7 @@ sidebar_label: Board Layout
 
 ## Form Factor
 
-The 305ap is a **36.5 mm × 36.5 mm** board with an **M4 mounting hole pattern** designed around soft-mount vibration isolation. Each mounting hole accepts a standard M3 rubber vibration isolator (M4 outer diameter, M3 inner bore) so the FC floats on rubber rather than bolting rigidly to the frame. Weight is **11 g with microSD card installed**.
+The 305ap is a **36.5 mm × 36.5 mm** board with **M4 mounting holes on a 30.5 mm × 30.5 mm pattern** designed around soft-mount vibration isolation. Each mounting hole accepts a standard M3 rubber vibration isolator (M4 outer diameter, M3 inner bore) so the FC floats on rubber rather than bolting rigidly to the frame. Weight is **11 g with microSD card installed**.
 
 ## Connector Placement
 
@@ -23,7 +23,7 @@ The 305ap connector layout is designed for clean wire routing in a typical FPV s
 | GPS | Side | 6-pin JST-GH, USART6 + I2C4 |
 | CAN1 | Side | 4-pin JST-GH, FDCAN1 |
 | CAN2 | Side | 4-pin JST-GH, FDCAN2 |
-| RC IN | Side | 3-pin, single-wire (SBUS/CRSF/PPM) |
+| RC IN | Side | 3-pin JST-GH, single-wire (SBUS/CRSF) |
 | VTX | Side | 6-pin JST-GH, 9 V + UART2 + SBUS out |
 | External I2C | Side | 4-pin JST-GH |
 | External SPI | Side | 7-pin JST-GH |
@@ -50,7 +50,7 @@ The 305ap connector layout is designed for clean wire routing in a typical FPV s
 
 ## Mounting
 
-The 305ap uses a **36.5 mm × 36.5 mm** mounting pattern with **M4 mounting holes** sized for standard M3 rubber vibration isolators. Each hole accepts one isolator (M4 OD × M3 ID) that the mounting M3 fastener passes through — the FC ends up floating on rubber with no direct metal-to-metal contact between the board and the airframe.
+The 305ap uses a **30.5 mm × 30.5 mm** mounting pattern with **M4 mounting holes** sized for standard M3 rubber vibration isolators. Each hole accepts one isolator (M4 OD × M3 ID) that the mounting M3 fastener passes through — the FC ends up floating on rubber with no direct metal-to-metal contact between the board and the airframe.
 
 The mounting holes are **electrically connected to GND** — this is only relevant if the M3 screw contacts the frame directly. When using rubber isolators as intended, the rubber breaks the electrical path.
 

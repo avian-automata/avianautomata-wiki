@@ -51,7 +51,9 @@ The VBAT input path includes a full protection chain:
 The LM74700-Q1 uses a charge-pump drive to fully enhance the N-FET, achieving roughly 20 mV forward drop in normal operation versus the ~0.3–0.5 V of a Schottky. This keeps the board's own power consumption low and reduces heat dissipation on the input stage.
 
 :::note Input voltage range
-Supported input: **2S–6S LiPo / Li-ion** (approximately 7–25.2 V). Do not exceed the LM74700-Q1's 65 V absolute maximum.
+Supported input: **2S–6S LiPo / Li-ion** (6.4–25.2 V). The absolute maximum is **35 V DC**, set by the AP63357 regulators and the input fuse. The USB input has an absolute maximum of **6 V**, set by the TPS2116.
+
+On 2S the battery is below 9 V, so the 9 V regulator runs in low-dropout mode and its output follows the battery voltage. The 5 V rail stays in regulation down to 6.4 V.
 :::
 
 ## Switching Regulators

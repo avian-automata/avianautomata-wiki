@@ -18,7 +18,6 @@ This port works with:
 - SBUS (e.g. FrSky, Futaba)
 - CRSF / ELRS (receiver TX to the RC IN signal pin)
 - DSM/DSMX (via spektrum satellite adapter)
-- Single-wire PPM
 
 No QGC configuration is needed. With `RC_INPUT_PROTO` = Auto (the default), the RC driver detects the protocol automatically. CRSF RC input on this port has been verified on the production test jig.
 

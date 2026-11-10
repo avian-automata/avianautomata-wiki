@@ -49,7 +49,7 @@ The 305ap is a compact, high-performance flight controller for multirotor, fixed
 | I2C | 3 buses (internal mag, GPS port, external port) |
 | SPI | 4 buses (baro, IMU ×2, external expansion) |
 | PWM outputs | 8 (TIM1/2/3/4) |
-| RC input | UART5 single-wire (SBUS, CRSF, PPM) |
+| RC input | UART5 single-wire (SBUS, CRSF and other serial protocols) |
 | USB | USB-C, USB 2.0 FS device (OTG FS PHY) |
 | SD card | SDMMC1 (native 4-bit SDIO) |
 
@@ -69,7 +69,7 @@ The 305ap is a compact, high-performance flight controller for multirotor, fixed
 | Parameter | Value |
 |---|---|
 | Dimensions | 36.5 mm × 36.5 mm |
-| Mounting | M4 mounting holes, sized for M3 rubber vibration isolators |
+| Mounting | M4 holes on a 30.5 mm × 30.5 mm pattern, sized for M3 rubber vibration isolators |
 | Weight | 11 g (with microSD card installed) |
 | Firmware target | `avianautomata_305ap` |
 
