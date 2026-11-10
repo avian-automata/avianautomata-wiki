@@ -10,17 +10,15 @@ Firmware releases are named `avianautomata_305ap_default_<date>.px4` and are dow
 
 ## Firmware
 
-### 20261107
+### 20261110
 
-Commit `6e9da2eafa`
+Commit `e9308cbc21`
 
-- **Updated:** PX4 to the current upstream `main`.
-
-### 20261105
-
-Commit `f253a9ba36`
-
+- **Changed:** all eight outputs now default to DShot300. Set a timer group to PWM if it drives servos or PWM-only ESCs.
+- **Changed:** ESC serial telemetry on the Motors connector starts automatically.
 - **Changed:** board ID is now `6700`, the ID reserved for the 305AP.
+- **Changed:** the bootloader accepts firmware over USB only.
+- **Updated:** PX4 to the current upstream `main`.
 
 ### 20261104
 
@@ -78,7 +76,7 @@ Commit `23cbe44f59`
 
 | Release | Notes |
 |---|---|
-| 20261105 | Current bootloader. Board ID `6700`. |
+| 20261110 | Current bootloader. Board ID `6700`, USB only. |
 | 20260429 | Board ID `12100`. |
 | 20260308 | Board ID `12100`. |
 
