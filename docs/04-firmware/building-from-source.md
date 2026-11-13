@@ -22,12 +22,14 @@ You also need:
 
 ## Clone PX4
 
-The 305ap board target is in the [avian automata PX4 fork](https://github.com/avian-automata/PX4-Autopilot) on GitHub (it is not in upstream PX4):
+The 305ap board target is in [upstream PX4](https://github.com/PX4/PX4-Autopilot) (`main` branch):
 
 ```bash
-git clone https://github.com/avian-automata/PX4-Autopilot.git --recursive
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 cd PX4-Autopilot
 ```
+
+The prebuilt releases come from the [avian automata PX4 fork](https://github.com/avian-automata/PX4-Autopilot), which follows upstream; clone it instead to build a specific release tag (for example `ext/oem-305ap-20261113`).
 
 :::note
 The `--recursive` flag is required to pull all submodules including NuttX.

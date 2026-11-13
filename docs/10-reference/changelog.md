@@ -10,6 +10,13 @@ Firmware releases are named `avianautomata_305ap_default_<date>.px4` and are dow
 
 ## Firmware
 
+### 20261113
+
+Commit `105f20c274`
+
+- **New:** the 305ap is now part of upstream PX4 ([PX4 pull request #29689](https://github.com/PX4/PX4-Autopilot/pull/29689)). This release is built from upstream `main` at that merge, and the board files are identical to upstream.
+- **Updated:** PX4 to the current upstream `main`.
+
 ### 20261110
 
 Commit `e9308cbc21`
@@ -76,7 +83,8 @@ Commit `23cbe44f59`
 
 | Release | Notes |
 |---|---|
-| 20261110 | Current bootloader. Board ID `6700`, USB only. |
+| 20261113 | Current bootloader. Same source as 20261110; boards on 20261110 don't need to update. |
+| 20261110 | Board ID `6700`, USB only. |
 | 20260429 | Board ID `12100`. |
 | 20260308 | Board ID `12100`. |
 
